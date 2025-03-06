@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,3 +124,12 @@ Route::resource('photos', PhotoController::class)->except([  'create', 'store', 
 ]);
 
 // Praktikum 3
+// Route::get('/greeting', function () { 
+//     return view('hello', ['name' => 'Titania Aurellia']); 
+// });
+
+// Route::get('/greeting', function () { 
+//     return view('blog.hello', ['name' => 'Titania Aurellia']); 
+// });
+
+Route::get('/greeting', [WelcomeController::class,  'greeting']);
