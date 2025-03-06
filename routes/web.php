@@ -102,3 +102,24 @@ Route::redirect('/here', '/there');
 // View Routes
 Route::view('/welcome', 'welcome');
 Route::view('/welcome', 'welcome', ['name' => 'Taylor']);
+
+// Praktikum 2
+Route::get('/hello', ['WelcomeController::class', 'hello']);
+
+Route::get('/', ['PageController::class', 'index']);
+Route::get('page/about', ['PageController::class', 'about']);
+Route::get('page/articles/{id}', ['PageController::class', 'articles']);
+
+Route::get('/', ['HomeController::class', 'index']);
+Route::get('/about', ['AboutController::class', 'index']);
+Route::get('/article/{id}', ['ArticleController::class', 'articles']);
+
+use App\Http\Controllers\PhotoController; 
+Route::resource('photos', PhotoController::class);
+
+Route::resource('photos', PhotoController::class)->only([  'index', 'show' 
+]); 
+Route::resource('photos', PhotoController::class)->except([  'create', 'store', 'update', 'destroy' 
+]);
+
+// Praktikum 3
