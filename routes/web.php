@@ -55,16 +55,16 @@ Route::get('/user/profile', function () {
     //
 })->name('profile');
 
-Route::get(
-    '/user/profile',
-    [UserProfileController::class, 'show']
-)->name('profile');
+// Route::get(
+//     '/user/profile',
+//     [UserProfileController::class, 'show']
+// )->name('profile');
     
-// Generating URLs...
-$url = route('profile');
+// // Generating URLs...
+// $url = route('profile');
 
-// Generating Redirects...
-return redirect()->route('profile');
+// // Generating Redirects...
+// return redirect()->route('profile');
 
 // Route Group
 Route::middleware(['first', 'second'])->group(function () {
@@ -83,18 +83,18 @@ Route::domain('{account}.example.com')->group(function () {
     });
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/user', [UserController::class, 'index']);
-    Route::get('/post', [PostController::class, 'index']);
-    Route::get('/event', [EventController::class, 'index']);
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/user', [UserController::class, 'index']);
+//     Route::get('/post', [PostController::class, 'index']);
+//     Route::get('/event', [EventController::class, 'index']);
+// });
 
 // Route Prefixes
-Route::prefix('admin')->group(function () {
-    Route::get('/user', [UserController::class, 'index']);
-    Route::get('/post', [PostController::class, 'index']);
-    Route::get('/event', [EventController::class, 'index']);
-});
+// Route::prefix('admin')->group(function () {
+//     Route::get('/user', [UserController::class, 'index']);
+//     Route::get('/post', [PostController::class, 'index']);
+//     Route::get('/event', [EventController::class, 'index']);
+// });
 
 // Redirect Routes
 Route::redirect('/here', '/there');
