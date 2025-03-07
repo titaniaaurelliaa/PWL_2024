@@ -133,3 +133,26 @@ Route::resource('photos', PhotoController::class)->except([  'create', 'store', 
 // });
 
 Route::get('/greeting', [WelcomeController::class,  'greeting']);
+
+// Tugas Jobsheet 2
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SaleController;
+
+// Halaman Home
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Halaman Products (Route Prefix)
+Route::prefix('category')->group(function () {
+    Route::get('/food-beverage', [ProductController::class, 'foodBeverage'])->name('products.foodBeverage');
+    Route::get('/beauty-health', [ProductController::class, 'beautyHealth'])->name('products.beautyHealth');
+    Route::get('/home-care', [ProductController::class, 'homeCare'])->name('products.homeCare');
+    Route::get('/baby-kid', [ProductController::class, 'babyKid'])->name('products.babyKid');
+});
+
+// Halaman User (Route Param)
+Route::get('/user/{id}/name/{name}', [UserController::class, 'show']);
+
+// Halaman Penjualan
+Route::get('/sale', [SaleController::class, 'index'])->name('sales.index');
